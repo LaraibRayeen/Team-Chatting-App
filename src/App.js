@@ -1,25 +1,49 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Route , Routes }  from 'react-router-dom';
+import Header from './components/Header';
+import Register from './components/Register';
+import Login from './components/Login';
+import Room from './components/Room';
+import Home from './components/Home';
+import Chat from './components/Chat';
+import TimeAgo from 'javascript-time-ago'
 
+
+// English.
+import en from 'javascript-time-ago/locale/en'
+import { useEffect, useState } from 'react';
+import { io } from 'socket.io-client';
+import Footer from './components/Footer';
+
+ 
 function App() {
+  TimeAgo.addDefaultLocale(en);
+  const url = "http://localhost:5000";
+  const [socket, setSocket] = useState(io(url, { autoConnect: false }));
+  
+  useEffect(() => {
+    socket.connect();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   <div>
+         
+       <BrowserRouter>
+       <Header></Header>
+       <Routes>
+        <Route element={<Register/>} path="Register"/> 
+        <Route element={<Login/>} path="Login"/>
+        <Route element={<Room socket={socket}/>} path="Room"/>
+        <Route element={<Chat socket={socket}/>} path="Chat"/>
+        <Route element={<Home/>} path="/"/>
+        <Route element={<Home/>} path="Home"/>
+       </Routes>
+       <Footer></Footer>
+       </BrowserRouter>
+         
+
+   </div>
+  )
 }
 
-export default App;
+export default App
