@@ -18,8 +18,7 @@ const Chat = ({socket}) => {
     setMsgList([...msgList, data]);
     
   });
-
-  const sendMsg = () => {
+    const sendMsg = () => {
     const obj = { text: msgText, createdAt: new Date(), sent: true };
     setMsgList([...msgList, obj]);
     socket.emit("sendmsg", obj);
@@ -52,7 +51,17 @@ const Chat = ({socket}) => {
           className="card-img-top img-fluid"
           alt="img"/> */}
         <div className="card-body">
-          <h5 className="rounded p-3 mb-2 card-title bg-primary  text-white">ChatApp</h5>
+       
+
+          <h5 className="rounded p-3 mb-2 card-title bg-primary  text-white">
+         
+          <i class="fa-solid fa-messages-question">
+
+          </i>
+
+            <i class="fa-solid fa-comments"></i> 
+            LiveChat</h5>
+          <i class="fa-solid fa-message-smile"></i>
       
 
         <div className="chat-area"> {showMsglist()} </div>
@@ -76,8 +85,8 @@ const Chat = ({socket}) => {
               type="submit"
               onClick={sendMsg}
             >
-              {" "}
-              Send{" "}
+             
+              <i class="fa-regular fa-paper-plane"></i>
             </button>
           </div>
         </div>

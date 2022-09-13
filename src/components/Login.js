@@ -28,7 +28,7 @@ export const Login = () => {
         else{
           Swal.fire({
             icon:'error',
-            title:"¯\_(ツ)_/¯",
+            title:"invalid input",
             text:'login failed'
             })
         }
