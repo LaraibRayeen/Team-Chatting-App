@@ -1,0 +1,10 @@
+.sent-msg{
+    max-width: 70%;
+    margin-left: auto;
+    background-color: #8bb2bb;
+}
+
+.rec-msg{
+    background-color:#cfcfcf;
+    max-width: 70%;
+}
