@@ -4,7 +4,7 @@ import logo from './pattern3.png';
 import { Formik } from 'formik';
 import Swal from 'sweetalert2'
 import TimeAgo from 'javascript-time-ago'
-
+import './Room.css';
  const Room = ({socket, selRoom, setSelRoom}) => {
 
   const [roomName, setRoomName] = useState("");
@@ -57,7 +57,7 @@ import TimeAgo from 'javascript-time-ago'
     </div>
     <div className="card-footer">
       {/* <small className="text-muted">tap to chat chat...</small>  */}
-      <button type="button" className="btn btn-dark " onClick={e => joinRoom(roomName)}> tap to chat..</button>
+      <button type="button" className="btn btn-dark " onClick={e => joinRoom(room.roomname)}> tap to chat..</button>
     </div>
     </div> );
 
@@ -133,7 +133,7 @@ useEffect(() => {
               // onChange={e => setRoomName(e.target.value)}
               className="form-control p-2 w-100 bd-highlight border shadow-2-strong"
             />
-            <label className="form-label" for="typeText">
+            <label className="form-label" htmlfor="typeText">
               {" "}
               type your Room name{" "}
             </label>
@@ -149,7 +149,9 @@ useEffect(() => {
           </form>
            )}
          </Formik>
+         <div className="room-area">
               {showRoomList()}
+              </div>
           </div>
        
      </div>

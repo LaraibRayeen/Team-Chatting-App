@@ -29,18 +29,18 @@ const Header = () => {
     </button> */}
     {/* <div className="collapse navbar-collapse" id="navbarNavAltMarkup"> */}
       {/* <div className="navbar-nav"> */}
-        <NavLink className="nav-link active navbar-brand" aria-current="page" to="Register">
+        {/* <NavLink className="nav-link active navbar-brand" aria-current="page" to="Register">
           Register
-        </NavLink>
+        </NavLink> */}
         <NavLink className="nav-link active navbar-brand"  aria-current="page" to="Login">
           Login
         </NavLink>
-        <NavLink className="nav-link active navbar-brand"  aria-current="page" to="Chat">
+        {/* <NavLink className="nav-link active navbar-brand"  aria-current="page" to="Chat">
           Chat
-        </NavLink>
-        <NavLink className="nav-link active navbar-brand"  aria-current="page" to="Room">
+        </NavLink> */}
+        {/* <NavLink className="nav-link active navbar-brand"  aria-current="page" to="Room">
           Room
-        </NavLink>
+        </NavLink> */}
         {/* <NavLink className="nav-link active"  aria-current="page" to="Home">
           Home
         </NavLink> */}

@@ -25,14 +25,14 @@ const Home = () => {
                  
                 <div className="col-md-6"> 
                   <div className="card-body my-3">
-                  <h4 class="card-title text-primary">LiveChat</h4>
-                   <p class="card-text">LiveChat can help young people build and develop social skills and gives them a platform to share their skills and help each other out.</p>
+                  <h4 className="card-title text-primary">LiveChat</h4>
+                   <p className="card-text">LiveChat can help young people build and develop social skills and gives them a platform to share their skills and help each other out.</p>
                  
                   </div>
 
                   <div className="card-body my-3">
-                  <h4 class="card-title text-primary">Benefits-</h4>
-                   <p class="card-text"> * LiveChat can help young people to become more effective non-verbal communicators.</p>
+                  <h4 className="card-title text-primary">Benefits-</h4>
+                   <p className="card-text"> * LiveChat can help young people to become more effective non-verbal communicators.</p>
                    <p className='caed-text'> *Reducing the need for face-to-face meetings</p>
                    <p className='card-text'>*appreciate different perspectives</p>
                    <p className='card-text'>*understand the difference between appropriate and inappropriate behaviour</p>
@@ -40,8 +40,8 @@ const Home = () => {
                  
                   </div>
                   <div className="card-body">
-                              <Link  to="/Room" className="btn btn-outline-dark text-center ">
-                          <i class="fa-solid fa-comment"></i> Create your Room</Link>  
+                              <Link  to="/Login" className="btn btn-outline-dark text-center ">
+                          <i className="fa-solid fa-comment"></i> Login Now & Create your Room</Link>  
                   </div>
                  
 

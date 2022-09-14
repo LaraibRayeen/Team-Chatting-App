@@ -1,12 +1,13 @@
 import { Formik } from 'formik';
 import React from 'react'
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
 export const Login = () => {
+  const navigate = useNavigate();
 
   const loginsubmit = async (formdata) => {
      console.log(formdata);
+     
       const response = await fetch('http://localhost:5000/user/authenticate', {
         method: 'POST',
         body:JSON.stringify(formdata),
@@ -18,12 +19,15 @@ export const Login = () => {
        })
 
        if (response.status ===  200){
+        const userdata = await JSON.stringify(response.json())
+        sessionStorage.setItem('user',userdata);
         console.log("user login")
          Swal.fire({
           icon:'success',
           title:"well done",
           text:'login successfully'
           })
+          navigate('/Room');
         }
         else if((response.status === 401)){
           Swal.fire({

@@ -3,6 +3,7 @@ import { io } from "socket.io-client";
 import './Chat.css';
 import logo from './pattern3.png'; 
 import TimeAgo from 'javascript-time-ago'
+// const audio = new Audio('ting.mp3');
 
 const Chat = ({socket, selRoom}) => {
   
@@ -19,7 +20,8 @@ const Chat = ({socket, selRoom}) => {
     
   });
     const sendMsg = () => {
-    const obj = { text: msgText, createdAt: new Date(), sent: true, room : selRoom };
+    const obj = { text: msgText, createdAt: new Date(), sent: true, room : selRoom 
+ };
     setMsgList([...msgList, obj]);
     socket.emit("sendmsg", obj);
   };
@@ -54,7 +56,7 @@ const Chat = ({socket, selRoom}) => {
           <h5 className="rounded p-3 mb-2 card-title bg-primary  text-white">
          
          
-            <i class="fa-solid fa-comments"></i> 
+            <i className="fa-solid fa-comments"></i> 
             LiveChat</h5>
           
 
@@ -75,12 +77,12 @@ const Chat = ({socket, selRoom}) => {
             </label>
 
             <button
-              class="btn btn-primary btn-lg"
+              className="btn btn-primary btn-lg"
               type="submit"
               onClick={sendMsg}
             >
              
-              <i class="fa-regular fa-paper-plane"></i>
+              <i className="fa-regular fa-paper-plane"></i>
             </button>
           </div>
         </div>
