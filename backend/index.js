@@ -1,6 +1,7 @@
 // import express
 const express = require("express");
 const userRouter = require("./routers/userRouter");
+const roomRouter = require("./routers/roomRouter");
 
 // intializing express
 const { createServer } = require("http");
@@ -29,6 +30,7 @@ app.use(
 
 //  middle ware
 app.use("/user", userRouter);
+app.use("/room", roomRouter);
 
 io.on("connection", (socket) => {
   console.log("socket connected");

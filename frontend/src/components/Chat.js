@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 import './Chat.css';
-import logo from './pattern.png'; 
+import logo from './pattern3.png'; 
 import TimeAgo from 'javascript-time-ago'
 
 const Chat = ({socket, selRoom}) => {
@@ -19,7 +19,7 @@ const Chat = ({socket, selRoom}) => {
     
   });
     const sendMsg = () => {
-    const obj = { text: msgText, createdAt: new Date(), sent: true };
+    const obj = { text: msgText, createdAt: new Date(), sent: true, room : selRoom };
     setMsgList([...msgList, obj]);
     socket.emit("sendmsg", obj);
   };
@@ -33,7 +33,8 @@ const Chat = ({socket, selRoom}) => {
     ));
   };
   const mystyle={
-    backgroundImage:`url(${logo})`,
+    // backgroundImage:`url(${logo})`,
+    backgroundImage: `linear-gradient(0deg, #a38fed00 , #a48fed) , url(${logo}) `,
     height:'100vh',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
@@ -42,9 +43,9 @@ const Chat = ({socket, selRoom}) => {
   return (
  <div style={mystyle}>
 
-    <div className="container shadow-lg  mt-15 p-3 mb-5 bg-white rounded">
+    <div className="container shadow-lg  p-5   rounded  ">
       
-      <h3>{selRoom}</h3>
+      <h3>{selRoom} </h3>
       <div className="card  col-md-10 mx-auto ">
         
         <div className="card-body">
@@ -57,7 +58,7 @@ const Chat = ({socket, selRoom}) => {
             LiveChat</h5>
           
 
-        <div className="chat-area overflow-auto "> {showMsglist()} </div>
+        <div className="chat-area"> {showMsglist()} </div>
 
         <div className="card-footer">
           <div className="form-outline d-flex bd-highlight">

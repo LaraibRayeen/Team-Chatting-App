@@ -2,21 +2,21 @@ import React from 'react'
 import { NavLink , Link } from 'react-router-dom';
 import './Home.css'
 import img from './Home.png'
-import logo from './pattern.png'; 
+import logo from './pattern3.png'; 
 import Register from './Register';
 
 const mystyle={
-    backgroundImage:`url(${logo})`,
-    height:'100vh',
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
+  backgroundImage: `linear-gradient(0deg, #a38fed00 , #a48fed) , url(${logo}) `,
+  height:'100vh',
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat',
   }
 const Home = () => {
   return (
-    <div  style={{backgroundImage:`url(${logo})`}} >
+    <div  style={mystyle }   >
 
-    <div className='container  border border-light'>
-        <div className="card">
+    <div className='container  border border-light  '>
+        <div className="card ">
             <div className="row">
                
                 {/* <div className="col-md-12">
@@ -40,7 +40,7 @@ const Home = () => {
                  
                   </div>
                   <div className="card-body">
-                              <Link  to="/Register" className="btn btn-outline-dark text-center ">
+                              <Link  to="/Room" className="btn btn-outline-dark text-center ">
                           <i class="fa-solid fa-comment"></i> Create your Room</Link>  
                   </div>
                  

@@ -2,6 +2,7 @@ import React from "react";
 import { Formik } from 'formik';
 import Swal from 'sweetalert2'
 import { Link } from "react-router-dom";
+
 const Register = () => {
 
     const userSubmit =  async (formdata) => {
@@ -38,8 +39,8 @@ const Register = () => {
           <div
             className="p-5 bg-image"
             style={{
-              backgroundImage:
-                'url("https://mdbootstrap.com/img/new/textures/full/171.jpg")',
+              backgroundImage: `
+                url("https://mdbootstrap.com/img/new/textures/full/171.jpg")`,
               height: 300,
             }}
           />
