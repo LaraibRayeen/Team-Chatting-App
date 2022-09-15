@@ -12,6 +12,7 @@ const Chat = ({socket, selRoom}) => {
   const [msgList, setMsgList] = useState([]);
   const [msgText, setMsgText] = useState("");
 
+  const [currentUser, setCurrentUser] = useState(JSON.parse(sessionStorage.getItem('user')));
   
 
   socket.on("recmsg", (data) => {
@@ -20,7 +21,7 @@ const Chat = ({socket, selRoom}) => {
     
   });
     const sendMsg = () => {
-    const obj = { text: msgText, createdAt: new Date(), sent: true, room : selRoom 
+    const obj = { text: msgText, createdAt: new Date(), sent: true, room : selRoom , username : currentUser.username
  };
     setMsgList([...msgList, obj]);
     socket.emit("sendmsg", obj);
@@ -28,9 +29,10 @@ const Chat = ({socket, selRoom}) => {
 
   const showMsglist = () => {
     return msgList.map((obj) => (
-      <div className={obj.sent ? 'sent-msg' : 'rec-msg'} >
-        <p> {obj.text} </p>
-        <p>{timeAgo.format(new Date(obj.createdAt))}</p>
+      <div  className={obj.sent ? 'sent-msg' : 'rec-msg' } >
+        <p className="text-center fs-5 fst-italic"> {obj.text} </p>
+        {/* <p className="mb-0  mx-3">{obj.username}</p> */}
+        <p className="my-0 mx-3 ">{timeAgo.format(new Date(obj.createdAt))} {obj.username}</p>
       </div>
     ));
   };
@@ -47,12 +49,12 @@ const Chat = ({socket, selRoom}) => {
 
     <div className="container shadow-lg  p-5   rounded  ">
       
-      <h3>{selRoom} </h3>
       <div className="card  col-md-10 mx-auto ">
         
         <div className="card-body">
        
 
+         <h3 className="" ><strong>{selRoom} </strong> </h3>
           <h5 className="rounded p-3 mb-2 card-title bg-primary  text-white">
          
          
@@ -72,8 +74,8 @@ const Chat = ({socket, selRoom}) => {
               className="form-control p-2 w-100 bd-highlight"
             />
             <label className="form-label" for="typeText">
-              {" "}
-              type your message{" "}
+            
+              Hi There.
             </label>
 
             <button

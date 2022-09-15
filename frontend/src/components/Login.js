@@ -19,14 +19,14 @@ export const Login = () => {
        })
 
        if (response.status ===  200){
-        const userdata = await JSON.stringify(response.json())
+        const userdata =  JSON.stringify(await response.json())
         sessionStorage.setItem('user',userdata);
         console.log("user login")
          Swal.fire({
           icon:'success',
-          title:"well done",
           text:'login successfully'
           })
+
           navigate('/Room');
         }
         else if((response.status === 401)){
