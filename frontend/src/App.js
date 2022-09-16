@@ -14,6 +14,7 @@ import en from 'javascript-time-ago/locale/en'
 import { useEffect, useState } from 'react';
 import { io } from 'socket.io-client';
 import Footer from './components/Footer';
+import Authorize from './components/Auth';
 
  
 function App() {
@@ -35,7 +36,7 @@ function App() {
        <Routes>
         <Route element={<Register/>} path="Register"/> 
         <Route element={<Login/>} path="Login"/>
-        <Route element={<Room socket={socket} selRoom={selRoom} setSelRoom={setSelRoom}/>} path="Room"/>
+        <Route element={<Authorize><Room socket={socket} selRoom={selRoom} setSelRoom={setSelRoom}/></Authorize>} path="Room"/>
         <Route element={<Chat socket={socket} selRoom={selRoom}/>} path="Chat"/>
         <Route element={<Home/>} path="/"/>
         <Route element={<Home/>} path="Home"/>
