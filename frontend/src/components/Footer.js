@@ -28,7 +28,7 @@ const Footer = () => {
             {/* Section: Social media */}
             {/* Section: Text */}
             <section className="mb-4">
-              <p>Created by @laraibRayeen with ❤</p>
+              <p>Created  by ❤</p>
             </section>
         
           </div>

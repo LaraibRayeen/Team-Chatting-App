@@ -41,7 +41,7 @@ const Home = () => {
                   </div>
                   <div className="card-body">
                               <Link  to="/Login" className="btn btn-outline-dark text-center ">
-                          <i className="fa-solid fa-comment"></i> Login Now & Create your Room</Link>  
+                          <i className="fa-solid fa-comment"></i> Login today and  create your  Room</Link>  
                   </div>
                  
 

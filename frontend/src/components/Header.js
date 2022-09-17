@@ -1,12 +1,25 @@
-import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom';
+// import React, { useState } from 'react'
+import { Link, Navigate, NavLink, useNavigate } from 'react-router-dom';
 
 
 
-const Header = ({children}) => {
-   const [loggedin, setloggedin] =  useState(JSON.parse(sessionStorage.getItem('user')));
-  
-  console.log(loggedin);
+
+const Header =() => {
+  const navigate = useNavigate();
+  let userState = sessionStorage.getItem('user');
+  const signOut = () => {
+    sessionStorage.removeItem('user');
+    // <Navigate to='/Login' replace={true} />
+    navigate('/Login');
+}
+
+const logIn = () => {
+    // <Navigate to='/Login' replace={true}/>
+    navigate('/Login');
+    
+}
+
+   
   return (
     <div>
       
@@ -18,32 +31,19 @@ const Header = ({children}) => {
           LiveChat
         </NavLink>
        
-        <div  className='d-flex justify-content-end'>
-        <NavLink className="nav-link active navbar-brand d-flex-end"  aria-current="page" to="Login">
-          Login
-        </NavLink>
-        
-         <NavLink className="nav-link active navbar-brand"  aria-current="page" to="Room">
+        <div  className='d-flex justify-content-around'>
+      
+         {/* <NavLink className="nav-link active navbar-brand"  aria-current="page" to="Room">
           Room's
-        </NavLink>
-        
+         </NavLink> */}
+         <Link  to="/Login" className="btn btn-outline-dark text-center  ">
+                           Room</Link> 
 
-        <div className='d-flex align-items-center'>
-        {
-         loggedin === null?  
-        
-         <NavLink className="nav-link active btn  navbar-brand d-flex-end"  aria-current="page" to="Login">
-          Login
-          </NavLink>
-         :
-        
-           <NavLink className="nav-link   active  btn navbar-brand d-flex-end" onClick={sessionStorage.removeItem("user")}  aria-current="page" >
-          Logout
-         </NavLink>  
-        }
-
+        <div className="d-flex align-items-center px-3 ">
+        {(userState === null)
+         ? <button type="button" onClick={logIn} className="btn btn-outline-link px-3 me-2" data-mdb-ripple-color="dark">Login</button>
+         : <button type="button" onClick={signOut} className="btn btn-outline-danger px-3 me-2" data-mdb-ripple-color="dark">Sign Out</button>}
         </div>
-
         </div>
      
   </div>

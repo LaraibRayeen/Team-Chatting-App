@@ -10,7 +10,7 @@ const Authorize = ({children}) => {
         Swal.fire({
             icon : 'error',
             title : 'Ooops!!',
-            text : 'Login to continue'
+            text : "Login For Room's"
         })
         return <Navigate to="/login" />
     }
