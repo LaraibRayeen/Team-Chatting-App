@@ -36,7 +36,7 @@ const logIn = () => {
          {/* <NavLink className="nav-link active navbar-brand"  aria-current="page" to="Room">
           Room's
          </NavLink> */}
-         <Link  to="/Login" className="btn btn-outline-dark text-center  ">
+         <Link  to="/Room" className="btn btn-outline-dark text-center  ">
                            Room</Link> 
 
         <div className="d-flex align-items-center px-3 ">

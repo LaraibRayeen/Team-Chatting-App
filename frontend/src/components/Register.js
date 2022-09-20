@@ -71,6 +71,7 @@ const Register = () => {
                             value={values.username}
                             onChange={handleChange}
                             className="form-control"
+                            required
                           />
                           <label className="form-label" >
                             Name
@@ -85,6 +86,7 @@ const Register = () => {
                             value={values.email}
                             onChange={handleChange}
                             className="form-control"
+                            required
                           />
                           <label className="form-label" htmlFor="form3Example3">
                             Email address
@@ -98,6 +100,7 @@ const Register = () => {
                             value={values.password}
                             onChange={handleChange}
                             className="form-control"
+                            required
                           />
                           <label className="form-label" htmlFor="form3Example4">
                             Password
